@@ -8,5 +8,7 @@ module GameOfLife
 			@y = y
 			@alive = false
 		end
+
+		def alive?; end
 	end
 end
