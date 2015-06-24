@@ -20,5 +20,12 @@ module GameOfLife
 				expect(cell).to_not be_dead
 			end
 		end
+
+		describe '#alive?' do
+			it 'should not be alive by default' do
+				cell = Cell.new(1, 1)
+				expect(cell).not_to be_alive
+			end
+		end
 	end
 end
