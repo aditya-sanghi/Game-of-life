@@ -12,4 +12,13 @@ describe Cell do
 
 	end
 
+
+	it 'should be dead originally' do
+
+		refcell=Cell.new(1,1)
+
+		expect(refcell.check_alive).to eq(false)
+
+	end
+
 end
