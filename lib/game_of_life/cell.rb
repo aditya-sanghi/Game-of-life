@@ -10,7 +10,11 @@ module GameOfLife
 		end
 
 		def dead?
-			true
+			!@alive
+		end
+
+		def revive!
+			@alive = true
 		end
 	end
 end
