@@ -14,7 +14,7 @@ module GameOfLife
 				expect(cell).to be_dead
 			end
 
-			it 'should not be dead when revived' do
+			it 'should not be dead after revival' do
 				cell = Cell.new(1, 1)
 				cell.revive!
 				expect(cell).to_not be_dead
@@ -27,7 +27,7 @@ module GameOfLife
 				expect(cell).not_to be_alive
 			end
 
-			it 'should be alive when revived' do
+			it 'should be alive after revival' do
 				cell = Cell.new(1, 1)
 				cell.revive!
 				expect(cell).to be_alive
