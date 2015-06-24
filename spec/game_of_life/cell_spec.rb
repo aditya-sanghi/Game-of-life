@@ -26,6 +26,12 @@ module GameOfLife
 				cell = Cell.new(1, 1)
 				expect(cell).not_to be_alive
 			end
+
+			it 'should be alive when revived' do
+				cell = Cell.new(1, 1)
+				cell.revive!
+				expect(cell).to be_alive
+			end
 		end
 	end
 end

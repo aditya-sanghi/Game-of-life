@@ -9,7 +9,9 @@ module GameOfLife
 			@alive = false
 		end
 
-		def alive?; end
+		def alive?
+			@alive
+		end
 
 		def dead?
 			!@alive
