@@ -9,6 +9,8 @@ module GameOfLife
 			@alive = false
 		end
 
-		def alive?; end
+		def dead?
+			true
+		end
 	end
 end

@@ -11,7 +11,7 @@ module GameOfLife
 		describe '#alive?' do
 			it 'should be dead by default' do
 				cell = Cell.new(1, 1)
-				expect(cell).to_not be_alive
+				expect(cell).to be_dead
 			end
 		end
 	end
