@@ -13,5 +13,11 @@ require 'spec_helper'
 			grid=Grid.new(100, 100)
 			expect(grid.makelinear).to include(0..99)
   	end
+
+		it 'should have all cells as dead' do
+			grid=Grid.new(100, 100)
+			expect(grid.makelinear.all?(&:dead?)).to eq (true)
+			end
+
 	end
 end
