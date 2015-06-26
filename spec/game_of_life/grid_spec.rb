@@ -11,7 +11,7 @@ require 'spec_helper'
 
 		it 'should contain x coordinates 0 to 99' do
 			grid=Grid.new(100, 100)
-			expect(grid.makelinear).to include(0..99)
+			expect(grid.makelinear.select{|cell| cell.x}).to include(0..99)
   	end
 
 		it 'should have all cells as dead' do
