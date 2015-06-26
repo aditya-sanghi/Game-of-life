@@ -19,5 +19,5 @@ module GameOfLife
 
   end
 
-  x= Grid.new(3,3)
+  
 end
