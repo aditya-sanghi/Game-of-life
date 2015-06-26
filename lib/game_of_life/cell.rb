@@ -1,5 +1,5 @@
-
 module GameOfLife
+
   class Cell
     attr_reader :x, :y
 
@@ -19,6 +19,11 @@ module GameOfLife
 
     def revive!
       @alive = true
+    end
+
+    def push(x,y)
+      @x=x
+      @y=y
     end
   end
 end

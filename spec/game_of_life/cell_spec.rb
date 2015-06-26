@@ -1,9 +1,9 @@
-require_relative '../spec_helper'
+require 'spec_helper'
 
 module GameOfLife
   describe Cell do
     it '#initialization' do
-      cell = Cell.new(1, 1)
+      cell = GameOfLife::Cell.new(1, 1)
       expect(cell.x).to eq(1)
       expect(cell.y).to eq(1)
     end

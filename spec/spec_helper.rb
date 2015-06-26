@@ -9,4 +9,4 @@ RSpec.configure do |config|
   end
 end
 
-require_relative '../lib/game_of_life'
+require 'game_of_life'

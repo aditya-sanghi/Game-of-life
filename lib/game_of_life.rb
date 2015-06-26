@@ -1,3 +1,4 @@
 module GameOfLife; end
 
-require_relative 'game_of_life/cell'
+require 'game_of_life/cell'
+require 'game_of_life/grid'
