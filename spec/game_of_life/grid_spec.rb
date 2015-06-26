@@ -25,5 +25,7 @@ require 'spec_helper'
 	    expect(grid.cell_at(1, 0)).to eq(grid.makelinear[3])
 	  end
 
+   \
+
 	end
 end

@@ -33,5 +33,16 @@ module GameOfLife
         expect(cell).to be_alive
       end
     end
+
+    describe '#kill!' do
+      it 'should make the cell dead' do
+        cell= Cell.new(2,2)
+        cell.revive!
+        expect(cell).to be_alive
+        cell.kill!
+        expect(cell). to be_dead
+      end
+    end
+
   end
 end

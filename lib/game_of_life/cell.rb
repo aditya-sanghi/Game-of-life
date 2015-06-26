@@ -21,6 +21,10 @@ module GameOfLife
       @alive = true
     end
 
+    def kill!
+      @alive=false
+    end
+
     def push(x,y)
       @x=x
       @y=y
