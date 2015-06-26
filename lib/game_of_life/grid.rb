@@ -17,7 +17,13 @@ module GameOfLife
       @cell_array.flatten
     end
 
-  end
+    def cell_at(x, y)
+    if @cell_array[x]
+      @cell_array[x][y]
+    end
+   end
 
-  
+ end
+
+
 end

@@ -19,5 +19,11 @@ require 'spec_helper'
 			expect(grid.makelinear.all?(&:dead?)).to eq (true)
 			end
 
+		it 'returns a cell at a x and y position' do
+	    grid = Grid.new(3, 3)
+	  	expect(grid.cell_at(0, 2)).to eq(grid.makelinear[2])
+	    expect(grid.cell_at(1, 0)).to eq(grid.makelinear[3])
+	  end
+
 	end
 end
