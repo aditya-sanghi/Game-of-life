@@ -23,10 +23,11 @@ module GameOfLife
     end
    end
 
-   
-
+   def neighbour_checker(x,y)
+     [[-1, 0], [1, 0], [-1, 1], [0, 1], [1, 1], [-1, -1], [0, -1], [1, -1] ].inject(0) do |sum, pos|
+	      sum + @cell_array[(y + pos[0]) % @height][(x + pos[1]) % @width].to_i
+		end
+  end
 
  end
-
-
 end

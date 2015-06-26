@@ -44,5 +44,13 @@ module GameOfLife
       end
     end
 
+    describe '#to_i' do
+      it 'should return 1 if cell is alive' do
+        cell= Cell.new(2,2)
+        cell.revive!
+        expect(cell.to_i).to eq(1)
+      end
+    end
+
   end
 end

@@ -17,7 +17,7 @@ require 'spec_helper'
 		it 'should have all cells as dead' do
 			grid=Grid.new(100, 100)
 			expect(grid.makelinear.all?(&:dead?)).to eq (true)
-			end
+		end
 
 		it 'returns a cell at a x and y position' do
 	    grid = Grid.new(3, 3)
@@ -25,7 +25,13 @@ require 'spec_helper'
 	    expect(grid.cell_at(1, 0)).to eq(grid.makelinear[3])
 	  end
 
-   \
-
-	end
+		describe '#neighbour_checker(x,y)' do
+			it 'should return the appropriate number of alive neighbors' do
+				grid=Grid.new(3,3)
+				grid.cell_at(0,0).revive!
+				grid.cell_at(1,2).revive!
+				expect(grid.neighbour_checker(1,1)).to eq(2)
+			end
+		end
+ end
 end
