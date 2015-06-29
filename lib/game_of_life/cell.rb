@@ -26,8 +26,8 @@ module GameOfLife
     end
 
     def push(x,y)
-      @x=x
-      @y=y
+      @x = x
+      @y = y
     end
 
   end
