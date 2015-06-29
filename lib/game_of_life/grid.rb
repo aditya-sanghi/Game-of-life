@@ -10,16 +10,23 @@ module GameOfLife
           @cell_array[i][j].push(i,j)
         end
       end
-      @iterations=iterator(@height, @width, input_iterations)
+      initial_config
+      @iterations=iterator(input_iterations)
     end
 
-    def iterator(height, width, iterations)
+    def iterator(iterations)
       temp = 0
       while temp.to_i < iterations.to_i do
         next_iteration
         temp = temp + 1
       end
       temp
+    end
+
+    def initial_config
+      [[0,0], [0,1], [0,2]].each do |(x, y)|
+        @cell_array[x][y].revive!
+      end
     end
 
     def makelinear
@@ -41,6 +48,7 @@ module GameOfLife
           game_rules(i,j)
         end
       end
+      display
       @cells_visited = temp.to_i
     end
 
@@ -62,6 +70,22 @@ module GameOfLife
         end
       end
     end
+
+    def display
+      @cell_array.each_index do |i|
+        puts "\n"
+        subarray = @cell_array[i]
+        subarray.each_index do |j|
+          if cell_at(i,j).alive?
+            print 'A'
+          else
+            
+          end
+        end
+      end
+    end
+
+    puts Grid.new(100,100,13)
 
   end
 end
