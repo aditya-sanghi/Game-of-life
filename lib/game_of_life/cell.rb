@@ -30,9 +30,5 @@ module GameOfLife
       @y=y
     end
 
-    def to_i
-      @alive ? 1 : 0
-    end
-
   end
 end
