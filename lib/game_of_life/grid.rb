@@ -25,8 +25,20 @@ module GameOfLife
 
    def neighbour_checker(x,y)
      [[-1, 0], [1, 0], [-1, 1], [0, 1], [1, 1], [-1, -1], [0, -1], [1, -1] ].inject(0) do |sum, pos|
-	      sum + @cell_array[(y + pos[0]) % @height][(x + pos[1]) % @width].to_i
+	      sum + (@cell_array[(y + pos[0]) % @height][(x + pos[1]) % @width].alive? ? 1:0)
 		end
+  end
+
+  def game_rules(x,y)
+    if cell_at(x,y).alive?
+      unless neighbour_checker(x,y) ==(2..3)
+        cell_at(x,y).kill!
+      end
+    else
+      if neighbour_checker(x,y) ==3
+        cell_at(x,y).revive!
+      end
+    end
   end
 
  end

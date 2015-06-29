@@ -8,17 +8,6 @@ require 'spec_helper'
 				expect(grid.makelinear.length).to eq(10000)
 			end
 
-
-		it 'should contain x coordinates 0 to 99' do
-			grid=Grid.new(100, 100)
-			expect(grid.makelinear.select{|cell| cell.x}).to include(0..99)
-  	end
-
-		it 'should have all cells as dead' do
-			grid=Grid.new(100, 100)
-			expect(grid.makelinear.all?(&:dead?)).to eq (true)
-		end
-
 		it 'returns a cell at a x and y position' do
 	    grid = Grid.new(3, 3)
 	  	expect(grid.cell_at(0, 2)).to eq(grid.makelinear[2])
@@ -26,12 +15,26 @@ require 'spec_helper'
 	  end
 
 		describe '#neighbour_checker(x,y)' do
-			it 'should return the appropriate number of alive neighbors' do
+			it 'should return the correct number of alive neighbors' do
 				grid=Grid.new(3,3)
 				grid.cell_at(0,0).revive!
 				grid.cell_at(1,2).revive!
 				expect(grid.neighbour_checker(1,1)).to eq(2)
 			end
 		end
+
+		describe
+
+		describe '#game_rules' do
+			it 'should tell the next state of the cell correctly' do
+				grid=Grid.new(3,3)
+				grid.cell_at(0,0).revive!
+				grid.cell_at(1,2).revive!
+				grid.cell_at(0,1).revive!
+				grid.game_rules(1,1)
+				expect(grid.cell_at(1,1)).to be_alive
+     end
+		end
+
  end
 end
