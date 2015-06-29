@@ -1,6 +1,7 @@
 module GameOfLife
   class Grid
-    def initialize(height, width, iterations)
+    attr_reader :iterations
+    def initialize(height, width, input_iterations)
       @height, @width = height,width
       @cell_array = Array.new(height) {Array.new(width) {GameOfLife::Cell.new(0,0)}}
       @cell_array.each_index do |i|
@@ -9,7 +10,7 @@ module GameOfLife
           @cell_array[i][j].push(i,j)
         end
       end
-      iterator(@height, @width, @iterations)
+      @iterations=iterator(@height, @width, input_iterations)
     end
 
     def iterator(height, width, iterations)

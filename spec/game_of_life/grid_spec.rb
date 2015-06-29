@@ -39,10 +39,16 @@ require 'spec_helper'
 		describe '#iterator' do
 			it 'should stop after given number of iterations!' do
 				grid = Grid.new(3, 3, 3)
-		 		iterations=grid.iterator(3, 3, 3)
+		 		iterations=grid.iterations
 				expect(iterations).to eq(3)
 		 end
 		end
+
+		describe '#next_iteration' do
+			it 'should go over all the cells in the grid' do
+
+		  end
+	  end
 
  end
 end
