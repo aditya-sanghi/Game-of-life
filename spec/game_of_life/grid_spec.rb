@@ -35,16 +35,16 @@ require 'spec_helper'
      end
 		end
 
-		describe '#iterator' do
-			it 'should stop after given number of iterations!' do
+		describe '#generator' do
+			it 'should stop after given number of generations!' do
 				grid = Grid.new(100, 100, 3)
-		 		iterations=grid.iterations
-				expect(iterations).to eq(3)
+		 		generations=grid.generations
+				expect(generations).to eq(3)
 		 end
 		end
 
-		describe 's#next_iteration' do
-			it 'should go over all the cells in the grid during each iteration' do
+		describe '#next_generation' do
+			it 'should go over all the cells in the grid during each generation' do
 		    grid = Grid.new(100,100,3)
 				cells_visited=grid.cells_visited
 				expect(cells_visited).to eq(10000)

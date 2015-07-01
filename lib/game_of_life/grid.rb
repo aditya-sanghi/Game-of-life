@@ -1,11 +1,11 @@
 module GameOfLife
   class Grid
-    attr_reader :iterations, :cells_visited, :cell_array
+    attr_reader :generations, :cells_visited, :cell_array
 
     $fp = File.open("output.txt", "w")
 
 
-    def initialize(height, width, input_iterations)
+    def initialize(height, width, input_generations)
       @height, @width = height,width
       @cell_array = Array.new(height) {Array.new(width) {GameOfLife::Cell.new(0,0)}}
       @cell_array.each_index do |i|
@@ -15,13 +15,13 @@ module GameOfLife
         end
       end
       initial_config
-      @iterations=iterator(input_iterations)
+      @generations=generator(input_generations)
     end
 
-    def iterator(iterations)
+    def generator(generations)
       temp = 0
-      while temp.to_i < iterations.to_i do
-        next_iteration
+      while temp.to_i < generations.to_i do
+        next_generation
         temp = temp + 1
       end
       temp
@@ -39,7 +39,7 @@ module GameOfLife
       @cell_array.flatten
     end
 
-    def next_iteration
+    def next_generation
       temp=0
       @cell_array.each_index do |i|
         subarray = @cell_array[i]
@@ -48,7 +48,7 @@ module GameOfLife
           game_rules(i,j)
         end
       end
-      $fp.write "Displaying Result of the latest iteration!"
+      $fp.write "Displaying Result of the latest generation!"
       display
       @cells_visited = temp.to_i
     end

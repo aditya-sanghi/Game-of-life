@@ -7,7 +7,7 @@ after initial config
          
          
          
-         A new Iteration started
+         Displaying Result of the latest generation!
          
          
          
@@ -16,7 +16,7 @@ after initial config
          
          
          
-         A new Iteration started
+         Displaying Result of the latest generation!
          
          
          
@@ -25,7 +25,7 @@ after initial config
          
          
          
-         A new Iteration started
+         Displaying Result of the latest generation!
          
          
          
@@ -34,7 +34,7 @@ after initial config
          
          
          
-         A new Iteration started
+         Displaying Result of the latest generation!
          
          
          
@@ -43,7 +43,7 @@ after initial config
          
          
          
-         A new Iteration started
+         Displaying Result of the latest generation!
          
          
          
