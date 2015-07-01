@@ -24,8 +24,6 @@ require 'spec_helper'
 			end
 		end
 
-		describe
-
 		describe '#game_rules' do
 			it 'should tell the next state of the cell correctly' do
 				grid = Grid.new(100, 100, 1)
