@@ -7,13 +7,7 @@ module GameOfLife
 
     def initialize(height, width, input_generations)
       @height, @width = height,width
-      @cell_array = Array.new(height) {Array.new(width) {GameOfLife::Cell.new(0,0)}}
-      @cell_array.each_index do |i|
-        subarray = @cell_array[i]
-        subarray.each_index do |j|
-          @cell_array[i][j].push(i,j)
-        end
-      end
+      @cell_array = Array.new(height) {Array.new(width) {GameOfLife::Cell.new}}
       initial_config
       @generations=generator(input_generations)
     end
