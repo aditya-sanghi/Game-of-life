@@ -1,6 +1,10 @@
 module GameOfLife
   class Grid
-    attr_reader :iterations, :cells_visited
+    attr_reader :iterations, :cells_visited, :cell_array
+
+    $fp = File.open("output.txt", "w")
+
+
     def initialize(height, width, input_iterations)
       @height, @width = height,width
       @cell_array = Array.new(height) {Array.new(width) {GameOfLife::Cell.new(0,0)}}
@@ -24,19 +28,15 @@ module GameOfLife
     end
 
     def initial_config
-      [[0,0], [0,1], [0,2]].each do |(x, y)|
+      [[0,1], [0,2], [0,3]].each do |(x, y)|
         @cell_array[x][y].revive!
       end
+      $fp.write "after initial config"
+      display
     end
 
     def makelinear
       @cell_array.flatten
-    end
-
-    def cell_at(x, y)
-      if @cell_array[x]
-        @cell_array[x][y]
-      end
     end
 
     def next_iteration
@@ -48,6 +48,7 @@ module GameOfLife
           game_rules(i,j)
         end
       end
+      $fp.write "Displaying Result of the latest iteration!"
       display
       @cells_visited = temp.to_i
     end
@@ -60,32 +61,30 @@ module GameOfLife
 
     def game_rules(x,y)
       alive_neighbors=neighbour_checker(x,y)
-      if cell_at(x,y).alive?
+      if @cell_array[x][y].alive?
         unless alive_neighbors == (2..3)
-          cell_at(x,y).kill!
+          @cell_array[x][y].kill!
         end
       else
         if alive_neighbors == 3
-          cell_at(x,y).revive!
+          @cell_array[x][y].revive!
         end
       end
     end
 
     def display
       @cell_array.each_index do |i|
-        puts "\n"
+        $fp.write "\n"
         subarray = @cell_array[i]
         subarray.each_index do |j|
-          if cell_at(i,j).alive?
-            print 'A'
+          if @cell_array[i][j].alive?
+            puts "Aliver"
+            $fp.write "A"
           else
-            
+            $fp.write " "
           end
         end
       end
     end
-
-    puts Grid.new(100,100,13)
-
   end
 end
