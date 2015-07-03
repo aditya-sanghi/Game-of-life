@@ -1,4 +1,5 @@
-after initial config
+
+After initial config
 ---------
 ---------
 ---AAA---
@@ -7,7 +8,17 @@ after initial config
 ---------
 ---------
 ---------
----------Displaying Result of the latest generation!
+---------
+ ori: ---------
+ ori: ---------
+ ori: ---AAA---
+ ori: ---------
+ ori: ---------
+ ori: ---------
+ ori: ---------
+ ori: ---------
+ ori: ---------
+Displaying Result of the latest generation!
 ---------
 ----AA---
 ---------
@@ -17,3 +28,12 @@ after initial config
 ---------
 ---------
 ---------
+ ori: ---------
+ ori: ----AA---
+ ori: ---------
+ ori: ---------
+ ori: ---------
+ ori: ---------
+ ori: ---------
+ ori: ---------
+ ori: ---------
