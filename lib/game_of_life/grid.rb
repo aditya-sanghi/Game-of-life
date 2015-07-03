@@ -10,11 +10,10 @@ module GameOfLife
       @cell_array = Array.new(height) {Array.new(width) {GameOfLife::Cell.new}}
       @new_array = Array.new(height) {Array.new(width) {GameOfLife::Cell.new}}
       initial_config
-      @new_array = @cell_array.clone
-      @generations = generator(input_generations)
+      @generations = generator(input_generations, @height, @width)
     end
 
-    def generator(generations)
+    def generator(generations, height, width)
       temp = 0
       while temp.to_i < generations.to_i do
         next_generation
@@ -28,7 +27,7 @@ module GameOfLife
       [[2,3], [2,4], [2,5]].each do |(x, y)|
         @cell_array[x][y].revive!
       end
-      $fp.write "after initial config"
+      $fp.write "\nAfter initial config"
       @new_array = @cell_array.clone
       display
     end
@@ -46,7 +45,7 @@ module GameOfLife
           game_rules(i,j)
         end
       end
-      $fp.write "Displaying Result of the latest generation!"
+      $fp.write "\nDisplaying Result of the latest generation!"
       display
       @cells_visited = temp.to_i
     end
@@ -71,26 +70,22 @@ module GameOfLife
     end
 
     def display
-      puts "IN display"
       @new_array.each_index do |i|
         $fp.write "\n"
         subarray = @new_array[i]
         subarray.each_index do |j|
           if @new_array[i][j].alive?
-            puts "Aliver"
             $fp.write "A"
           else
             $fp.write "-"
           end
         end
       end
-      puts "IN display 22"
       @cell_array.each_index do |i|
-        $fp.write "\n"
+        $fp.write "\n ori: "
         subarray = @cell_array[i]
         subarray.each_index do |j|
           if @cell_array[i][j].alive?
-            puts "Aliver"
             $fp.write "A"
           else
             $fp.write "-"

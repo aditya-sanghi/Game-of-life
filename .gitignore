@@ -1,1 +1,4 @@
 coverage
+output.txt
+.DS_Store
+.rspec
