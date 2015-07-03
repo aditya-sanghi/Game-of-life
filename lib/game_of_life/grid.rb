@@ -10,10 +10,10 @@ module GameOfLife
       @cell_array = Array.new(height) {Array.new(width) {GameOfLife::Cell.new}}
       @new_array = Array.new(height) {Array.new(width) {GameOfLife::Cell.new}}
       initial_config
-      @generations = generator(input_generations, @height, @width)
+      @generations = generator(input_generations)
     end
 
-    def generator(generations, height, width)
+    def generator(generations)
       temp = 0
       while temp.to_i < generations.to_i do
         next_generation
