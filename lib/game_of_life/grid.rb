@@ -71,25 +71,16 @@ module GameOfLife
     end
 
     def display
+      alive = "A"
+      dead = "-"
       @new_array.each_index do |i|
         $fp.write "\n"
         subarray = @new_array[i]
         subarray.each_index do |j|
           if @new_array[i][j].alive?
-            $fp.write "A"
+            $fp.write alive
           else
-            $fp.write "-"
-          end
-        end
-      end
-      @cell_array.each_index do |i|
-        $fp.write "\n ori: "
-        subarray = @cell_array[i]
-        subarray.each_index do |j|
-          if @cell_array[i][j].alive?
-            $fp.write "A"
-          else
-            $fp.write "-"
+            $fp.write dead
           end
         end
       end
