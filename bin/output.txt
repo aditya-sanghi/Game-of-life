@@ -7,7 +7,16 @@ after initial config
 ---------
 ---------
 ---------
----------Displaying Result of the latest generation!
+---------
+ orimat: ---------
+ orimat: ---------
+ orimat: ---AAA---
+ orimat: ---------
+ orimat: ---------
+ orimat: ---------
+ orimat: ---------
+ orimat: ---------
+ orimat: ---------Displaying Result of the latest generation!
 ---------
 ----AA---
 ---------
@@ -16,40 +25,13 @@ after initial config
 ---------
 ---------
 ---------
----------Displaying Result of the latest generation!
 ---------
----------
----------
----------
----------
----------
----------
----------
----------Displaying Result of the latest generation!
----------
----------
----------
----------
----------
----------
----------
----------
----------Displaying Result of the latest generation!
----------
----------
----------
----------
----------
----------
----------
----------
----------Displaying Result of the latest generation!
----------
----------
----------
----------
----------
----------
----------
----------
----------
+ orimat: ---------
+ orimat: ----AA---
+ orimat: ---------
+ orimat: ---------
+ orimat: ---------
+ orimat: ---------
+ orimat: ---------
+ orimat: ---------
+ orimat: ---------

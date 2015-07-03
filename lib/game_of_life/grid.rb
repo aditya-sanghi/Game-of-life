@@ -84,6 +84,19 @@ module GameOfLife
           end
         end
       end
+      puts "IN display 22"
+      @cell_array.each_index do |i|
+        $fp.write "\n"
+        subarray = @cell_array[i]
+        subarray.each_index do |j|
+          if @cell_array[i][j].alive?
+            puts "Aliver"
+            $fp.write "A"
+          else
+            $fp.write "-"
+          end
+        end
+      end
     end
   end
 end
