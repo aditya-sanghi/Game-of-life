@@ -56,8 +56,8 @@ require 'spec_helper'
 		  it 'should make the appropriate cells alive initially' do
 			  grid = Grid.new(9, 9, 10)
 				grid.initial_config
-				expect(grid.cell_array[0][1]).to be_alive
-				expect(grid.cell_array[0][2]).to be_alive
+				expect(grid.cell_array[2][3]).to be_alive
+				expect(grid.cell_array[2][4]).to be_alive
 			end
 		end
 

@@ -1,55 +1,55 @@
 after initial config
- AAA     
-         
-         
-         
-         
-         
-         
-         
-         Displaying Result of the latest generation!
-         
-         
-         
-         
-         
-         
-         
-         
-         Displaying Result of the latest generation!
-         
-         
-         
-         
-         
-         
-         
-         
-         Displaying Result of the latest generation!
-         
-         
-         
-         
-         
-         
-         
-         
-         Displaying Result of the latest generation!
-         
-         
-         
-         
-         
-         
-         
-         
-         Displaying Result of the latest generation!
-         
-         
-         
-         
-         
-         
-         
-         
-         
+---------
+---------
+---AAA---
+---------
+---------
+---------
+---------
+---------
+---------Displaying Result of the latest generation!
+---------
+----AA---
+---------
+---------
+---------
+---------
+---------
+---------
+---------Displaying Result of the latest generation!
+---------
+---------
+---------
+---------
+---------
+---------
+---------
+---------
+---------Displaying Result of the latest generation!
+---------
+---------
+---------
+---------
+---------
+---------
+---------
+---------
+---------Displaying Result of the latest generation!
+---------
+---------
+---------
+---------
+---------
+---------
+---------
+---------
+---------Displaying Result of the latest generation!
+---------
+---------
+---------
+---------
+---------
+---------
+---------
+---------
+---------
