@@ -51,7 +51,8 @@ module GameOfLife
     end
 
     def neighbour_checker(x,y)
-      [[-1, 0], [1, 0], [-1, 1], [0, 1], [1, 1], [-1, -1], [0, -1], [1, -1] ].inject(0) do |sum, pos|
+      all_neighbour_coordinates = [[-1, 0], [1, 0], [-1, 1], [0, 1], [1, 1], [-1, -1], [0, -1], [1, -1]]
+      all_neighbour_coordinates.inject(0) do |sum, pos|
         sum + (@cell_array[(x + pos[0]) % @height][(y + pos[1]) % @width].alive? ? 1:0)
       end
     end
