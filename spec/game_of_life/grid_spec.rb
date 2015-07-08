@@ -8,13 +8,13 @@ require 'spec_helper'
 				expect(grid.make_linear.length).to eq(10000)
 			end
 
-		describe '#neighbour_checker(x,y)' do
+		describe '#alive_neighbour_count(x,y)' do
 			it 'should return the correct number of alive neighbors' do
 				grid = Grid.new(100, 100, 1)
 				(grid.cell_array[0][0]).revive!
 				(grid.cell_array[1][2]).revive!
 				(grid.cell_array[0][2]).revive!
-				expect(grid.neighbour_checker(1,1)).to eq(3)
+				expect(grid.alive_neighbour_count(1,1)).to eq(3)
 			end
 		end
 

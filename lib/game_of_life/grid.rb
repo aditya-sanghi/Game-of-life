@@ -48,7 +48,7 @@ module GameOfLife
       @cells_visited = temp.to_i
     end
 
-    def neighbour_checker(x,y)
+    def alive_neighbour_count(x,y)
       all_neighbour_coordinates = [[-1, 0], [1, 0], [-1, 1], [0, 1], [1, 1], [-1, -1], [0, -1], [1, -1]]
       all_neighbour_coordinates.inject(0) do |sum, pos|
         sum + (@cell_array[(x + pos[0]) % @height][(y + pos[1]) % @width].alive? ? 1:0)
@@ -56,13 +56,13 @@ module GameOfLife
     end
 
     def game_rules(x,y)
-      alive_neighbors=neighbour_checker(x,y)
+      alive_neighbour_count = alive_neighbour_count(x,y)
       if @cell_array[x][y].alive?
-        unless (alive_neighbors == 2 || alive_neighbors == 3)
+        unless (alive_neighbour_count == 2 || alive_neighbour_count == 3)
           @new_array[x][y].kill!
         end
       else
-        if alive_neighbors == 3
+        if alive_neighbour_count == 3
           @new_array[x][y].revive!
         end
       end
