@@ -16,18 +16,18 @@ module GameOfLife
           cell.revive!
           expect(cell).to_not be_dead
       end
+
+      it 'should be alive after revival' do
+        cell = Cell.new
+        cell.revive!
+        expect(cell).to be_alive
+      end
     end
 
     describe '#alive?' do
       it 'should not be alive by default' do
         cell = Cell.new
         expect(cell).not_to be_alive
-      end
-
-      it 'should be alive after revival' do
-        cell = Cell.new
-        cell.revive!
-        expect(cell).to be_alive
       end
     end
 
