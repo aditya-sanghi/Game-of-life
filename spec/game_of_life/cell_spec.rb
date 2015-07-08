@@ -35,7 +35,6 @@ module GameOfLife
       it 'should make the cell dead' do
         cell = Cell.new
         cell.revive!
-        expect(cell).to be_alive
         cell.kill!
         expect(cell). to be_dead
       end
