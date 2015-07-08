@@ -2,10 +2,8 @@ module GameOfLife
   class Grid
     attr_reader :generations, :cells_visited, :cell_array
 
-    $fp = File.open("output.txt", "w")
-
-
-    def initialize(height, width, input_generations)
+    def initialize(height, width, input_generations, file_pointer = File.open("output.txt", "w"))
+      @file_pointer = file_pointer
       @height, @width = height,width
       @cell_array = Array.new(height) {Array.new(width) {GameOfLife::Cell.new}}
       @new_array = Array.new(height) {Array.new(width) {GameOfLife::Cell.new}}
@@ -27,7 +25,7 @@ module GameOfLife
       [[2,3], [2,4], [2,5]].each do |(x, y)|
         @cell_array[x][y].revive!
       end
-      $fp.write "\nAfter initial config"
+      @file_pointer.write "\nAfter initial config"
       @new_array = @cell_array.clone
       display
     end
@@ -45,7 +43,7 @@ module GameOfLife
           game_rules(i,j)
         end
       end
-      $fp.write "\nDisplaying Result of the latest generation!"
+      @file_pointer.write "\nDisplaying Result of the latest generation!"
       display
       @cells_visited = temp.to_i
     end
@@ -74,13 +72,13 @@ module GameOfLife
       alive = "A"
       dead = "-"
       @new_array.each_index do |i|
-        $fp.write "\n"
+        @file_pointer.write "\n"
         subarray = @new_array[i]
         subarray.each_index do |j|
           if @new_array[i][j].alive?
-            $fp.write alive
+            @file_pointer.write alive
           else
-            $fp.write dead
+            @file_pointer.write dead
           end
         end
       end

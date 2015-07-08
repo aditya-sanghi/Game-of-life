@@ -8,12 +8,6 @@ require 'spec_helper'
 				expect(grid.makelinear.length).to eq(10000)
 			end
 
-		it 'returns a cell at the x and y position' do
-	    grid = Grid.new(100, 100, 3)
-	  	expect(grid.cell_array[0][2]).to eq(grid.makelinear[2])
-	    expect(grid.cell_array[1][0]).to eq(grid.makelinear[100])
-	  end
-
 		describe '#neighbour_checker(x,y)' do
 			it 'should return the correct number of alive neighbors' do
 				grid = Grid.new(100, 100, 1)
