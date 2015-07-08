@@ -5,7 +5,7 @@ require 'spec_helper'
 		describe Grid do
 		  it 'initialising a grid' do
 				grid=Grid.new(100, 100, 3)
-				expect(grid.makelinear.length).to eq(10000)
+				expect(grid.make_linear.length).to eq(10000)
 			end
 
 		describe '#neighbour_checker(x,y)' do
@@ -25,7 +25,7 @@ require 'spec_helper'
 				(grid.cell_array[0][1]).revive!
 				(grid.cell_array[0][2]).revive!
 				grid.game_rules(1,1)
-				expect(grid.cell_array[1][1]).to be_alive
+				expect(grid.new_array[1][1]).to be_alive
      end
 		end
 

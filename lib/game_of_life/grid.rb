@@ -1,6 +1,6 @@
 module GameOfLife
   class Grid
-    attr_reader :generations, :cells_visited, :cell_array
+    attr_reader :generations, :cells_visited, :cell_array, :new_array
 
     def initialize(height, width, input_generations, file_pointer = File.open("output.txt", "w"))
       @file_pointer = file_pointer
@@ -30,7 +30,7 @@ module GameOfLife
       display
     end
 
-    def makelinear
+    def make_linear
       @cell_array.flatten
     end
 
