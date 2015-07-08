@@ -58,7 +58,7 @@ module GameOfLife
     def game_rules(x,y)
       alive_neighbors=neighbour_checker(x,y)
       if @cell_array[x][y].alive?
-        unless alive_neighbors == (2..3)
+        unless (alive_neighbors == 2 || alive_neighbors == 3)
           @new_array[x][y].kill!
         end
       else
