@@ -15,7 +15,7 @@ module GameOfLife
       temp = 0
       while temp.to_i < generations.to_i do
         next_generation
-        @cell_array = @new_array.clone
+        @cell_array = Marshal.load( Marshal.dump(@new_array) )
         temp = temp + 1
       end
       temp
@@ -26,7 +26,7 @@ module GameOfLife
         @cell_array[x][y].revive!
       end
       @file_pointer.write "\nAfter initial config"
-      @new_array = @cell_array.clone
+      @new_array = Marshal.load( Marshal.dump(@cell_array) )
       display
     end
 
