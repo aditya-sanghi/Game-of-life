@@ -8,11 +8,13 @@ module GameOfLife
         cell = Cell.new
         expect(cell).to be_dead
       end
+    end
 
+    describe '#revive!' do
       it 'should not be dead after revival' do
-        cell = Cell.new
-        cell.revive!
-        expect(cell).to_not be_dead
+          cell = Cell.new
+          cell.revive!
+          expect(cell).to_not be_dead
       end
     end
 
