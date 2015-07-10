@@ -5,8 +5,8 @@ module GameOfLife
     def initialize(height, width, input_generations, file_pointer = File.open("output.txt", "w"))
       @file_pointer = file_pointer
       @height, @width = height,width
-      @cell_array = Array.new(height) {Array.new(width) {GameOfLife::Cell.new}}
-      @new_array = Array.new(height) {Array.new(width) {GameOfLife::Cell.new}}
+      @cell_array = Array.new(height) {Array.new(width) {GameOfLife::Cell.new(Cell:: DEAD)}}
+      @new_array = Array.new(height) {Array.new(width) {GameOfLife::Cell.new(Cell:: ALIVE)}}
       initial_config
       @generations = generator(input_generations)
     end
