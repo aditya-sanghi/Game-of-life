@@ -10,7 +10,7 @@ module GameOfLife
       end
     end
 
-    describe '#revive!' do
+    describe '#a cell that is dead' do
       it 'should not be dead after revival' do
           cell = Cell.new
           cell.revive!
