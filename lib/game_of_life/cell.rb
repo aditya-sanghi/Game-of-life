@@ -1,25 +1,27 @@
 module GameOfLife
 
   class Cell
+    DEAD = Object.new
+    ALIVE = Object.new
 
-    def initialize 
-      @alive = false
+    def initialize(status)
+      @status = status
     end
 
     def alive?
-      @alive
+      @status == ALIVE
     end
 
     def dead?
-      !@alive
+      @status == DEAD
     end
 
     def revive!
-      @alive = true
+      @status = ALIVE
     end
 
     def kill!
-      @alive=false
+      @status = DEAD
     end
 
   end
