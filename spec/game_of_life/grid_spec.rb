@@ -9,12 +9,17 @@ require 'spec_helper'
       end
 
     describe '#alive_neighbour_count(x,y)' do
-      it 'should return the correct number of alive neighbors' do
+      it 'should return the correct number of alive neighbors if 3 surrounding neighbors are alive' do
         grid = Grid.new(100, 100, 1)
         (grid.cell_array[0][0]).revive!
         (grid.cell_array[1][2]).revive!
         (grid.cell_array[0][2]).revive!
         expect(grid.alive_neighbour_count(1,1)).to eq(3)
+      end
+
+      it 'should return the correct number of alive neighbors if no neighbour is alive' do
+        grid = Grid.new(100, 100, 1)
+        expect(grid.alive_neighbour_count(1,1)).to eq(0)
       end
     end
 
