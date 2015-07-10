@@ -44,14 +44,34 @@ require 'spec_helper'
         (grid.cell_array[0][2]).revive!
         grid.game_rules(1,1)
         expect(grid.new_array[1][1]).to be_alive
-     end
+      end
+
+      it 'should tell the next state of a dead cell with 2 alive neighbors correctly' do
+        grid = Grid.new(100, 100, 1)
+        (grid.cell_array[0][0]).revive!
+        (grid.cell_array[0][1]).revive!
+        expect(grid.new_array[1][1]).to be_dead
+      end
+
+      it 'should tell the next state of an alive cell with 5 alive neighbors correctly' do
+        grid = Grid.new(100, 100, 1)
+        (grid.cell_array[1][1]).revive!
+
+        (grid.cell_array[0][0]).revive!
+        (grid.cell_array[0][1]).revive!
+        (grid.cell_array[0][2]).revive!
+        (grid.cell_array[1][2]).revive!
+        (grid.cell_array[2][2]).revive!
+        grid.game_rules(1,1)
+        expect(grid.new_array[1][1]).to be_dead
+      end
     end
 
-    describe '#generator' do
+    describe '#next_generator_creator' do
       it 'should stop after given number of generations!' do
         grid = Grid.new(100, 100, 3)
-         generations=grid.generations
-        expect(generations).to eq(3)
+        number_of_generations = grid.number_of_generations
+        expect(number_of_generations).to eq(3)
      end
     end
 
@@ -67,9 +87,8 @@ require 'spec_helper'
     describe '#initial_config' do
       it 'should make the appropriate cells alive initially' do
         grid = Grid.new(9, 9, 10)
-        grid.initial_config
-        expect(grid.cell_array[2][3]).to be_alive
-        expect(grid.cell_array[2][4]).to be_alive
+        expect(grid.new_array[2][3]).to be_alive
+        expect(grid.new_array[2][4]).to be_alive
       end
     end
 

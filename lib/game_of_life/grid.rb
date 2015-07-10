@@ -1,24 +1,14 @@
 module GameOfLife
   class Grid
-    attr_reader :generations, :cells_visited, :cell_array, :new_array
+    attr_reader :number_of_generations, :cells_visited, :cell_array, :new_array
 
-    def initialize(height, width, input_generations, file_pointer = File.open("output.txt", "w"))
+    def initialize(height, width, number_of_generations, file_pointer = File.open("output.txt", "w"))
       @file_pointer = file_pointer
       @height, @width = height,width
-      @cell_array = Array.new(height) {Array.new(width) {GameOfLife::Cell.new(Cell:: DEAD)}}
-      @new_array = Array.new(height) {Array.new(width) {GameOfLife::Cell.new(Cell:: ALIVE)}}
+      @cell_array = Array.new(height) {Array.new(width) {GameOfLife::Cell.new(Cell::DEAD)}}
+      @new_array = Array.new(height) {Array.new(width) {GameOfLife::Cell.new(Cell::DEAD)}}
       initial_config
-      @generations = generator(input_generations)
-    end
-
-    def generator(generations)
-      temp = 0
-      while temp.to_i < generations.to_i do
-        next_generation
-        @cell_array = Marshal.load( Marshal.dump(@new_array) )
-        temp = temp + 1
-      end
-      temp
+      @number_of_generations = next_generation_creator(number_of_generations)
     end
 
     def initial_config
@@ -28,6 +18,16 @@ module GameOfLife
       @file_pointer.write "\nAfter initial config"
       @new_array = Marshal.load( Marshal.dump(@cell_array) )
       display
+    end
+
+    def next_generation_creator(number_of_generations)
+      temp = 0
+      while temp.to_i < number_of_generations.to_i do
+        next_generation
+        @cell_array = Marshal.load( Marshal.dump(@new_array) )
+        temp = temp + 1
+      end
+      temp
     end
 
     def make_linear
@@ -83,5 +83,7 @@ module GameOfLife
         end
       end
     end
+    private :initial_config
   end
 end
+

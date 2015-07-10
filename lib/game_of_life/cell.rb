@@ -4,6 +4,7 @@ module GameOfLife
     DEAD = Object.new
     ALIVE = Object.new
 
+
     def initialize(status)
       @status = status
     end
