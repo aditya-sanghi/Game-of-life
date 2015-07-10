@@ -21,10 +21,23 @@ require 'spec_helper'
         grid = Grid.new(100, 100, 1)
         expect(grid.alive_neighbour_count(1,1)).to eq(0)
       end
+
+      it 'should return the correct number of alive neighbors if 8 surrounding neighbors are alive' do
+        grid = Grid.new(100, 100, 1)
+        (grid.cell_array[0][0]).revive!
+        (grid.cell_array[1][2]).revive!
+        (grid.cell_array[0][2]).revive!
+        (grid.cell_array[0][1]).revive!
+        (grid.cell_array[2][0]).revive!
+        (grid.cell_array[1][0]).revive!
+        (grid.cell_array[2][1]).revive!
+        (grid.cell_array[2][2]).revive!
+        expect(grid.alive_neighbour_count(1,1)).to eq(8)
+      end
     end
 
     describe '#game_rules' do
-      it 'should tell the next state of the cell correctly' do
+      it 'should tell the next state of a dead cell with 3 alive neighbors correctly' do
         grid = Grid.new(100, 100, 1)
         (grid.cell_array[0][0]).revive!
         (grid.cell_array[0][1]).revive!
