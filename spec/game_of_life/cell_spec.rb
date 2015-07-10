@@ -22,14 +22,15 @@ module GameOfLife
         cell.revive!
         expect(cell).to be_alive
       end
-    end
 
-    describe '#alive?' do
-      it 'should not be alive by default' do
+      it 'should not be alive if no operation performed on it' do
         cell = Cell.new
         expect(cell).not_to be_alive
       end
     end
+
+    describe 'a cell that is alive' do
+          end
 
     describe '#kill!' do
       it 'should make the cell dead' do
