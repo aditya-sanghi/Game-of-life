@@ -1,10 +1,9 @@
 module GameOfLife
 
   class Cell
-    DEAD = Object.new
-    ALIVE = Object.new
-
-
+    DEAD = "dead"
+    ALIVE = "alive"
+    
     def initialize(status)
       @status = status
     end
