@@ -3,7 +3,7 @@ module GameOfLife
   class Cell
     DEAD = "dead"
     ALIVE = "alive"
-    
+
     def initialize(status)
       @status = status
     end

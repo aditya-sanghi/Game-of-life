@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-  module GameOfLife
+module GameOfLife
 
-    describe Grid do
-      it 'initialising a grid' do
-        grid=Grid.new(100, 100, 3)
-        expect(grid.make_linear.length).to eq(10000)
-      end
+  describe Grid do
+    it 'initialising a grid' do
+      grid = Grid.new(100, 100, 3)
+      expect(grid.make_linear.length).to eq(10000)
+    end
 
     describe '#alive_neighbour_count(x,y)' do
       it 'should return the correct number of alive neighbors if 3 surrounding neighbors are alive' do
@@ -14,12 +14,12 @@ require 'spec_helper'
         (grid.cell_array[0][0]).revive!
         (grid.cell_array[1][2]).revive!
         (grid.cell_array[0][2]).revive!
-        expect(grid.alive_neighbour_count(1,1)).to eq(3)
+        expect(grid.alive_neighbour_count(1, 1)).to eq(3)
       end
 
       it 'should return the correct number of alive neighbors if no neighbour is alive' do
         grid = Grid.new(100, 100, 1)
-        expect(grid.alive_neighbour_count(1,1)).to eq(0)
+        expect(grid.alive_neighbour_count(1, 1)).to eq(0)
       end
 
       it 'should return the correct number of alive neighbors if 8 surrounding neighbors are alive' do
@@ -32,7 +32,7 @@ require 'spec_helper'
         (grid.cell_array[1][0]).revive!
         (grid.cell_array[2][1]).revive!
         (grid.cell_array[2][2]).revive!
-        expect(grid.alive_neighbour_count(1,1)).to eq(8)
+        expect(grid.alive_neighbour_count(1, 1)).to eq(8)
       end
     end
 
@@ -42,7 +42,7 @@ require 'spec_helper'
         (grid.cell_array[0][0]).revive!
         (grid.cell_array[0][1]).revive!
         (grid.cell_array[0][2]).revive!
-        grid.game_rules(1,1)
+        grid.game_rules(1, 1)
         expect(grid.new_array[1][1]).to be_alive
       end
 
@@ -62,7 +62,7 @@ require 'spec_helper'
         (grid.cell_array[0][2]).revive!
         (grid.cell_array[1][2]).revive!
         (grid.cell_array[2][2]).revive!
-        grid.game_rules(1,1)
+        grid.game_rules(1, 1)
         expect(grid.new_array[1][1]).to be_dead
       end
     end
@@ -72,12 +72,12 @@ require 'spec_helper'
         grid = Grid.new(100, 100, 3)
         number_of_generations = grid.number_of_generations
         expect(number_of_generations).to eq(3)
-     end
+      end
     end
 
     describe '#next_generation' do
       it 'should go over all the cells in the grid during each generation' do
-        grid = Grid.new(100,100,3)
+        grid = Grid.new(100, 100, 3)
         cells_visited=grid.cells_visited
         expect(cells_visited).to eq(10000)
       end
@@ -92,5 +92,5 @@ require 'spec_helper'
       end
     end
 
- end
+  end
 end
