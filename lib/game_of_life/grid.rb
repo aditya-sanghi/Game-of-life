@@ -16,15 +16,12 @@ module GameOfLife
       [[2, 3], [2, 4], [2, 5]].each do |(x, y)|
         @cell_array[x][y].revive!
       end
-       @output_file.write "\nAfter initial config"
-      display
     end
 
     def next_generation_creator(number_of_generations)
       temp = 0
       while temp.to_i < number_of_generations.to_i do
         next_generation
-        @cell_array = Marshal.load(Marshal.dump(@new_array))
         temp = temp + 1
       end
       temp
@@ -79,8 +76,10 @@ module GameOfLife
         subarray.each_index do |j|
           if @new_array[i][j].alive?
             @output_file.write alive
+            @cell_array[i][j].revive!
           else
             @output_file.write dead
+            @cell_array[i][j].kill!
           end
         end
       end
