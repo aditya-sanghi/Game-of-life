@@ -1,7 +1,7 @@
 require '../lib/game_of_life'
 
-file_pointer = File.open("output.txt", "w")
+output_file = File.open("output.txt", "w")
 
-GameOfLife::Grid.new(9,9,10, file_pointer)
+GameOfLife::Grid.new(9,9,10, output_file)
 
-file_pointer.close
+output_file.close

@@ -7,6 +7,7 @@ module GameOfLife
       @height, @width = height, width
       @cell_array = Array.new(height) { Array.new(width) { GameOfLife::Cell.new(Cell::DEAD) } }
       @new_array = Array.new(height) { Array.new(width) { GameOfLife::Cell.new(Cell::DEAD) } }
+
       initial_config
       @number_of_generations = next_generation_creator(number_of_generations)
     end
@@ -16,7 +17,6 @@ module GameOfLife
         @cell_array[x][y].revive!
       end
        @output_file.write "\nAfter initial config"
-      @new_array = Marshal.load(Marshal.dump(@cell_array))
       display
     end
 
@@ -58,8 +58,10 @@ module GameOfLife
     def game_rules(x, y)
       alive_neighbour_count = alive_neighbour_count(x, y)
       if @cell_array[x][y].alive?
-        unless (alive_neighbour_count == 2 || alive_neighbour_count == 3)
+        if (alive_neighbour_count != 2 && alive_neighbour_count != 3)
           @new_array[x][y].kill!
+        else
+          @new_array[x][y].revive!
         end
       else
         if alive_neighbour_count == 3

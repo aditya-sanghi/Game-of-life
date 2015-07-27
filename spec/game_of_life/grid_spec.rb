@@ -37,23 +37,50 @@ module GameOfLife
     end
 
     describe '#game_rules' do
-      it 'should tell the next state of a dead cell with 3 alive neighbors correctly' do
+      it 'should make dead cell with 3 alive neighbors alive' do
         grid = Grid.new(100, 100, 1)
         (grid.cell_array[0][0]).revive!
         (grid.cell_array[0][1]).revive!
         (grid.cell_array[0][2]).revive!
+
         grid.game_rules(1, 1)
         expect(grid.new_array[1][1]).to be_alive
       end
 
-      it 'should tell the next state of a dead cell with 2 alive neighbors correctly' do
+      it 'should keep a dead cell with 2 alive neighbors dead' do
         grid = Grid.new(100, 100, 1)
         (grid.cell_array[0][0]).revive!
         (grid.cell_array[0][1]).revive!
+
+        grid.game_rules(1, 1)
         expect(grid.new_array[1][1]).to be_dead
       end
 
-      it 'should tell the next state of an alive cell with 5 alive neighbors correctly' do
+      it 'should keep111 an alive cell with 2 alive neighbors alive' do
+        grid = Grid.new(100, 100, 1)
+        (grid.cell_array[1][1]).revive!
+        (grid.cell_array[0][0]).revive!
+        (grid.cell_array[0][1]).revive!
+
+
+        grid.game_rules(1, 1)
+        expect(grid.new_array[1][1]).to be_alive
+      end
+
+      it 'should keep an alive cell with 3 alive neighbors alive' do
+        grid = Grid.new(100, 100, 1)
+        (grid.cell_array[1][1]).revive!
+
+        (grid.cell_array[0][0]).revive!
+        (grid.cell_array[0][1]).revive!
+        (grid.cell_array[0][2]).revive!
+
+
+        grid.game_rules(1, 1)
+        expect(grid.new_array[1][1]).to be_alive
+      end
+
+      it 'should make an alive cell with 5 alive neighbors dead' do
         grid = Grid.new(100, 100, 1)
         (grid.cell_array[1][1]).revive!
 
@@ -62,6 +89,7 @@ module GameOfLife
         (grid.cell_array[0][2]).revive!
         (grid.cell_array[1][2]).revive!
         (grid.cell_array[2][2]).revive!
+
         grid.game_rules(1, 1)
         expect(grid.new_array[1][1]).to be_dead
       end
