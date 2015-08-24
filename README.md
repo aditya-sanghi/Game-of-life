@@ -33,7 +33,7 @@ To use this project as a codebase simply clone the project to your local folder.
 Download the rspecs gem to run tests on the code in the lib folder
 Go to terminal and type: *Rake*
 
-Run
+#Run
 
 To run the game in the terminal
 
